@@ -325,6 +325,148 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:34px 0 42px;fon
 @media(max-width:760px){.hero-actions .hero-book-button,.hero-actions .hero-call-button{min-height:50px;padding:12px 16px}.site-loader-caption{font-size:.75rem}.trust-item:hover{transform:none}}
 @media(prefers-reduced-motion:reduce){.trust-item,.hero-contact-actions .hero-contact-button,.hero-meta span{animation:none!important;filter:none!important;opacity:1!important;transition:none!important}.book-cta-arrow,.site-loader:before,.site-loader:after,.site-loader-logo,.site-loader-rule,.site-loader-spinner{animation:none!important}.hero-actions .hero-book-button,.hero-actions .hero-call-button,.book-cta-button,.hero-contact-button .hero-contact-icon{transition:none!important}}
 </style>
+<style id="marinemaro-beautylab-mobile-layout">
+/* Mobile-first layout, aligned with the compact BeautyLab layout. */
+html{scroll-padding-top:86px}
+.floating-booking{appearance:none;-webkit-appearance:none;cursor:pointer;font-family:var(--sans);}
+.floating-booking:focus-visible,.contact-choice-option:focus-visible,.contact-choice-close:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.contact-choice-panel[hidden]{display:none!important}
+.contact-choice-panel{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:88px;z-index:9001;width:min(320px,calc(100vw - 28px));padding:16px;border:1px solid var(--powder);border-radius:20px;background:rgba(255,255,255,.98);box-shadow:0 18px 48px rgba(58,44,46,.22);backdrop-filter:blur(12px);animation:mm-choice-pop .2s ease-out both}
+@keyframes mm-choice-pop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+.contact-choice-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;color:var(--ink);font-size:.96rem}
+.contact-choice-close{display:grid;place-items:center;flex:none;width:32px;height:32px;border:1px solid var(--powder);border-radius:50%;background:var(--cream);color:var(--ink);font:1.35rem/1 var(--sans);cursor:pointer}
+.contact-choice-option{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 12px;border:1px solid var(--powder);border-radius:14px;background:var(--cream);color:var(--ink);text-decoration:none;text-align:left;font:inherit;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.contact-choice-option+.contact-choice-option{margin-top:8px}
+.contact-choice-option:hover{background:var(--light);border-color:var(--brand);transform:translateY(-1px)}
+.contact-choice-option>span:last-child{display:flex;flex-direction:column;gap:3px;min-width:0}
+.contact-choice-option strong{font-size:.92rem;font-weight:800}.contact-choice-option small{font-size:.78rem;color:var(--muted)}
+.contact-choice-icon{display:grid;place-items:center;width:35px;height:35px;flex:none;border-radius:50%;background:var(--light);color:var(--ink);font-size:1.05rem}
+.yc-foot{display:none!important}
+@media(max-width:760px){
+  .wrap{width:calc(100% - 30px);max-width:600px}
+  .section{padding:56px 0}
+  .site-header .nav{min-height:70px;gap:10px}
+  .site-header .logo{width:clamp(136px,43vw,154px)}
+  .menu-toggle{min-width:44px;min-height:44px;border-radius:13px;transition:transform .2s,background .2s,box-shadow .2s}
+  .menu-toggle:active{transform:scale(.94)}
+  .hero{padding:32px 0 58px}
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:22px}
+  .hero-copy{padding:0;min-width:0}
+  .hero h1{max-width:100%;font-size:clamp(2rem,8.5vw,3.1rem);line-height:1.06;letter-spacing:-.035em;overflow-wrap:anywhere}
+  .hero-lead{font-size:1rem;line-height:1.62}
+  .hero-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:22px}
+  .hero-actions .btn{min-width:0;width:100%;min-height:48px;padding:11px 8px;justify-content:center;font-size:.9rem}
+  .hero-contact-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:14px}
+  .hero-contact-button{min-width:0;padding:9px 5px;border-radius:13px;font-size:.72rem}
+  .hero-contact-icon{width:25px;height:25px}
+  .hero-meta{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin-top:18px;font-size:.83rem}
+  .hero-visual,.hero-art-placeholder{width:100%;min-height:0;height:auto;aspect-ratio:1.05/1;max-height:none;margin:0 auto;border-radius:120px 120px 18px 18px;padding:20px}
+  .hero-art-placeholder .art-label{max-width:calc(100% - 28px);gap:8px;padding:13px 15px;font-size:1.06rem;letter-spacing:.1em;white-space:normal}
+  .hero-art-placeholder .art-label small{font-size:.52rem;letter-spacing:.24em}
+  .hero-art-placeholder .visual-caption{font-size:clamp(1.35rem,5.5vw,1.8rem);max-width:10em}
+  .hero-art-placeholder .art-note{right:18px;bottom:19px;font-size:.62rem}
+  .services-grid.directory-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:10px}
+  .services-grid.directory-grid>.service-card.directory-card{display:flex;flex:initial;width:auto;max-width:none;min-width:0;min-height:0;padding:17px 14px;border-radius:18px}
+  .services-grid.directory-grid>.service-card.directory-card:last-child:nth-child(odd){grid-column:1/-1;width:calc(50% - 5px);justify-self:center}
+  #services,#catalog,#gallery,#about,#reviews,#book,#contacts{scroll-margin-top:82px}
+  #catalog .catalog-cluster{scroll-margin-top:90px}
+  .service-card.directory-card .dir-mark{margin-bottom:11px;width:31px;height:31px;font-size:1rem}
+  .service-card.directory-card h3{font-size:1.02rem;line-height:1.22;overflow-wrap:anywhere}
+  .service-card.directory-card p{font-size:.78rem;line-height:1.48;margin-bottom:12px}
+  .service-card.directory-card .micro-link{margin-top:auto;font-size:.7rem;line-height:1.35}
+  .catalog-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;overflow:visible;overscroll-behavior:initial;padding:4px 0 8px;margin:0 0 14px}
+  .catalog-tab{width:100%;min-width:0;min-height:46px;padding:10px 8px;white-space:normal;text-align:center;font-size:.81rem;line-height:1.22;border-radius:14px}
+  .catalog-tab:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 4px)}
+  .catalog-grid{grid-template-columns:minmax(0,1fr);gap:12px}
+  .cluster-title{display:block;margin-bottom:14px;padding-bottom:12px}
+  .cluster-title h3{font-size:1.4rem;line-height:1.2}
+  .cluster-title p{margin-top:6px;font-size:.83rem;line-height:1.45}
+  .catalog-card{padding:19px 16px;border-radius:19px}
+  .price-row{grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:11px 0}
+  .price-name{font-size:.86rem;line-height:1.42}
+  .price-value{font-size:.83rem;white-space:nowrap}
+  .price-value.price-unknown{max-width:110px;white-space:normal;text-align:right}
+  .gallery-grid.placeholder-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .work-placeholder{min-height:205px;border-radius:15px}
+  .work-placeholder strong{font-size:1.15rem}
+  .work-placeholder small{font-size:.68rem}
+  .gallery-actions .btn,.section-actions .btn{width:100%;flex:1 1 100%}
+  .about-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .about-card{min-width:0;padding:19px 15px;border-radius:18px}
+  .about-card h3{font-size:1.02rem;line-height:1.25}
+  .about-card p{font-size:.82rem;line-height:1.5;overflow-wrap:anywhere}
+  .review-panel{grid-template-columns:minmax(0,1fr);gap:12px;padding:21px;border-radius:19px}
+  .review-panel .btn{width:100%;justify-self:stretch}
+  .contacts-grid{grid-template-columns:minmax(0,1fr);gap:12px}
+  .contact-card{min-width:0;padding:20px;border-radius:20px}
+  .contact-list{grid-template-columns:1fr;gap:3px}
+  .contact-list dt{margin-top:8px;font-size:.82rem;color:var(--muted)}
+  .contact-list dd{margin:0 0 6px;overflow-wrap:anywhere}
+  .map-card{padding:14px}
+  .map-panel,.map-panel iframe{min-height:300px}
+  .book-section h2{font-size:clamp(1.9rem,8vw,2.6rem)}
+  .book-help-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .book-help-actions .btn{min-width:0;min-height:45px;padding:10px 8px;font-size:.82rem}
+  footer .footer-inner{align-items:flex-start;flex-direction:column;gap:10px;padding-bottom:115px}
+  .floating-booking{right:12px;bottom:max(12px,env(safe-area-inset-bottom));min-height:50px;padding:8px 14px 8px 10px;font-size:.84rem;gap:8px}
+  .floating-booking-icon{width:30px;height:30px}
+  .contact-choice-panel{right:12px;bottom:calc(max(12px,env(safe-area-inset-bottom)) + 64px);width:min(320px,calc(100vw - 24px));padding:14px}
+  .yc-modal{padding:0}
+  .yc-box{width:100%;height:100vh;height:100dvh;border-radius:0}
+  .yc-head{padding:12px}
+  .yc-head h2{font-size:1.1rem}
+  .yc-actions .btn{font-size:.78rem;padding:7px 10px}
+}
+@media(max-width:390px){
+  .wrap{width:calc(100% - 26px)}
+  .hero-actions{gap:8px}
+  .hero-actions .btn{font-size:.84rem}
+  .services-grid.directory-grid{gap:8px}
+  .services-grid.directory-grid>.service-card.directory-card{padding:15px 11px}
+  .service-card.directory-card h3{font-size:.96rem}
+  .service-card.directory-card p{font-size:.74rem}
+  .catalog-tab{font-size:.77rem;padding-inline:6px}
+  .work-placeholder{min-height:180px}
+  .about-card{padding:16px 12px}
+  .about-card h3{font-size:.94rem}
+  .about-card p{font-size:.77rem}
+  .price-row{grid-template-columns:minmax(0,1fr) auto;gap:6px}
+  .price-name{font-size:.81rem}
+  .price-value{font-size:.78rem}
+  .hero-contact-button{font-size:.67rem}
+}
+@media(max-width:340px){
+  .service-card.directory-card h3{font-size:.94rem}
+  .service-card.directory-card p{font-size:.72rem}
+  .about-card{padding:15px 10px}
+  .about-card h3{font-size:.9rem}
+  .about-card p{font-size:.74rem}
+}
+@media(min-width:761px) and (max-width:900px){
+  .wrap{width:calc(100% - 42px);max-width:760px}
+  .site-header .nav{position:relative;min-height:76px;gap:12px;justify-content:space-between}
+  .site-header .logo{width:150px}
+  .nav-cta{display:none!important}
+  .menu-toggle{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;border-radius:13px}
+  .nav-links{display:none;position:absolute;z-index:1100;top:calc(100% + 1px);left:0;right:0;margin:0;padding:16px 22px 22px;background:var(--brand);box-shadow:0 18px 22px rgba(58,44,46,.14);flex-direction:column;align-items:stretch;gap:0;font-size:1rem}
+  .nav-links.open{display:flex}
+  .nav-links li{border-top:1px solid rgba(255,255,255,.24)}
+  .nav-links a{display:block;padding:12px 0}
+  .hero{padding:42px 0 68px}
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  .hero-copy{padding:0}
+  .hero h1{font-size:clamp(2.6rem,6.5vw,3.6rem)}
+  .hero-visual,.hero-art-placeholder{width:min(100%,500px);min-height:0;aspect-ratio:1/1.02;margin-inline:auto}
+  .services-grid.directory-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+  .services-grid.directory-grid>.service-card.directory-card{flex:initial;max-width:none;min-height:0;padding:22px}
+  .services-grid.directory-grid>.service-card.directory-card:last-child:nth-child(odd){grid-column:1/-1;width:calc(50% - 6px);justify-self:center}
+  .catalog-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible;gap:9px}
+  .catalog-tab{min-width:0;white-space:normal;padding:11px 10px;text-align:center}
+  .catalog-tab:last-child:nth-child(odd){grid-column:auto;width:100%}
+  .contacts-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.contact-choice-panel,.contact-choice-option{animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
 <div class="site-loader" id="siteLoader" role="status" aria-label="Загрузка сайта Marinemaro">
@@ -351,9 +493,9 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:34px 0 42px;fon
 <div class="wrap hero-grid">
  <div class="hero-copy reveal">
   <p class="eyebrow">Студия красоты · Нефтеюганск</p>
-  <h1>Красота — в деталях</h1>
+  <h1>Marinemaro beauty bar</h1>
   <p class="hero-lead">Marinemaro beauty bar — пространство ухода за собой. Маникюр и педикюр, ресницы и брови, перманентный макияж и визаж — в одном месте, в спокойной атмосфере и по предварительной записи.</p>
-  <div class="hero-actions"><a class="btn btn-primary hero-book-button" data-yc href="https://b749524.yclients.com/company/703835/personal/menu?o=" rel="noopener noreferrer" target="_blank">Записаться <span class="hero-cta-arrow" aria-hidden="true">↗</span></a><a class="btn btn-primary hero-call-button" href="tel:+79825749928" aria-label="Позвонить в Marinemaro"><svg class="hero-call-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.8 9.1 3.3l1.5 3.8-1.7 1.4a15.2 15.2 0 0 0 6.6 6.6l1.4-1.7 3.8 1.5-.5 2.5c-.2 1.2-1.3 2.1-2.5 2A16.6 16.6 0 0 1 4.6 6.3c-.1-1.2.8-2.3 2-2.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Позвонить</span></a></div>
+  <div class="hero-actions"><a class="btn btn-primary hero-book-button" data-yc href="https://b749524.yclients.com/company/703835/personal/menu?o=" rel="noopener noreferrer" target="_blank">Записаться </a><a class="btn btn-primary hero-call-button" href="tel:+79825749928" aria-label="Позвонить в Marinemaro"><svg class="hero-call-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.8 9.1 3.3l1.5 3.8-1.7 1.4a15.2 15.2 0 0 0 6.6 6.6l1.4-1.7 3.8 1.5-.5 2.5c-.2 1.2-1.3 2.1-2.5 2A16.6 16.6 0 0 1 4.6 6.3c-.1-1.2.8-2.3 2-2.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Позвонить</span></a></div>
   <div class="hero-contact-actions" aria-label="Быстрая связь со студией">
    <a class="hero-contact-button" href="https://wa.me/79825749928" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp"><span class="hero-contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.2 11.7a8.2 8.2 0 0 1-12.1 7.2L4 20l1.2-4a8.2 8.2 0 1 1 15-4.3Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.3 7.8c.3-.4.6-.3.9-.1l.8 1.7c.1.3 0 .5-.2.7l-.5.5c.5 1.1 1.3 1.9 2.5 2.4l.5-.6c.2-.2.4-.2.7-.1l1.6.8c.3.1.3.4.2.7-.2.7-1 1.1-1.7 1.1-2.3-.1-5.8-3.3-5.9-5.7 0-.7.4-1.2 1.1-1.4Z" fill="currentColor"/></svg></span><span>WhatsApp</span></a>
    <a class="hero-contact-button" href="https://t.me/+79825749928" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram"><span class="hero-contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m21 4-3.4 16-6.1-4.8-3.3 2.8.6-5.8L19 6.1 7.7 13.2 3 11.6 21 4Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Telegram</span></a>
@@ -560,7 +702,12 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:34px 0 42px;fon
 </main>
 <footer><div class="wrap footer-inner"><div><strong>Marinemaro beauty bar</strong><p>Нефтеюганск · Южная улица, 18</p></div><p>Демонстрационная концепция сайта для владельца. Не является официальным сайтом студии до согласования запуска.</p></div></footer>
 
-<a aria-label="Открыть онлайн-запись Marinemaro beauty bar" class="floating-booking" data-yc="" href="https://b749524.yclients.com/company/703835/personal/menu?o=" id="floating-booking" rel="noopener noreferrer" target="_blank"><span aria-hidden="true" class="floating-booking-icon">↗</span><span>Записаться онлайн</span></a><div aria-labelledby="yc-title" aria-modal="true" class="yc-modal" hidden="" id="yc-modal" role="dialog"><div class="yc-box"><div class="yc-head"><h2 id="yc-title">Онлайн-запись</h2><div class="yc-actions"><a class="btn" href="https://b749524.yclients.com/company/703835/personal/menu?o=" rel="noopener noreferrer" target="_blank">Открыть запись отдельно ↗</a><button aria-label="Закрыть окно записи" class="yc-close" type="button">×</button></div></div><div class="yc-body"><div class="yc-state" id="yc-state">Загружаем форму записи…</div><iframe id="yc-frame" referrerpolicy="strict-origin-when-cross-origin" title="Онлайн-запись Marinemaro beauty bar через YCLIENTS"></iframe></div><div class="yc-foot"><span>Форма не открылась?</span><a href="https://b749524.yclients.com/company/703835/personal/menu?o=" rel="noopener noreferrer" target="_blank">Открыть онлайн-запись отдельно →</a></div></div></div><script>
+<button aria-controls="contact-choice-panel" aria-expanded="false" aria-haspopup="dialog" aria-label="Выбрать способ связи" class="floating-booking" id="floating-booking" type="button"><span aria-hidden="true" class="floating-booking-icon"><svg viewBox="0 0 24 24" width="19" height="19"><path d="M6.6 3.8 9.1 3.3l1.5 3.8-1.7 1.4a15.2 15.2 0 0 0 6.6 6.6l1.4-1.7 3.8 1.5-.5 2.5c-.2 1.2-1.3 2.1-2.5 2A16.6 16.6 0 0 1 4.6 6.3c-.1-1.2.8-2.3 2-2.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Связаться</span></button>
+<div aria-label="Выбор способа связи" aria-modal="false" class="contact-choice-panel" hidden id="contact-choice-panel" role="dialog">
+  <div class="contact-choice-head"><strong>Как удобнее связаться?</strong><button aria-label="Закрыть выбор способа связи" class="contact-choice-close" type="button">×</button></div>
+  <a class="contact-choice-option" href="tel:+79825749928"><span class="contact-choice-icon" aria-hidden="true">☎</span><span><strong>Позвонить</strong><small>+7 982 574-99-28</small></span></a>
+  <button class="contact-choice-option" data-yc type="button"><span class="contact-choice-icon" aria-hidden="true">↗</span><span><strong>Записаться онлайн</strong><small>Выбрать услугу и время</small></span></button>
+</div><div aria-labelledby="yc-title" aria-modal="true" class="yc-modal" hidden="" id="yc-modal" role="dialog"><div class="yc-box"><div class="yc-head"><h2 id="yc-title">Онлайн-запись</h2><div class="yc-actions"><a class="btn" href="https://b749524.yclients.com/company/703835/personal/menu?o=" rel="noopener noreferrer" target="_blank">Открыть запись отдельно ↗</a><button aria-label="Закрыть окно записи" class="yc-close" type="button">×</button></div></div><div class="yc-body"><div class="yc-state" id="yc-state">Загружаем форму записи…</div><iframe id="yc-frame" referrerpolicy="strict-origin-when-cross-origin" title="Онлайн-запись Marinemaro beauty bar через YCLIENTS"></iframe></div></div></div><script>
 (function(){
  const menuButton=document.getElementById('menuToggle');
  const nav=document.getElementById('navLinks');
@@ -726,5 +873,20 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:34px 0 42px;fon
   window.setTimeout(hideLoader,3200);
 })();
 </script>
+<script id="marinemaro-contact-choice-script">
+(function(){
+  var toggle=document.getElementById('floating-booking');
+  var panel=document.getElementById('contact-choice-panel');
+  if(!toggle||!panel)return;
+  var closeBtn=panel.querySelector('.contact-choice-close');
+  function openPanel(){panel.hidden=false;toggle.setAttribute('aria-expanded','true');}
+  function closePanel(){panel.hidden=true;toggle.setAttribute('aria-expanded','false');}
+  toggle.addEventListener('click',function(e){e.stopPropagation();if(panel.hidden)openPanel();else closePanel();});
+  panel.addEventListener('click',function(e){e.stopPropagation();if(e.target.closest('.contact-choice-close')){closePanel();toggle.focus();return;}if(e.target.closest('a[href^="tel:"]'))closePanel();if(e.target.closest('[data-yc]'))closePanel();});
+  document.addEventListener('click',function(e){if(!panel.contains(e.target)&&e.target!==toggle&&!toggle.contains(e.target))closePanel();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hidden){closePanel();toggle.focus();}});
+})();
+</script>
+
 </body>
 </html>
