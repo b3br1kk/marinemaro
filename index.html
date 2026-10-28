@@ -3,6 +3,30 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<script id="marinemaro-start-at-top">
+/* Always enter at the first screen. Ignore stale catalog hashes and browser scroll restoration. */
+(function(){
+  try {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (location.hash) history.replaceState(null, document.title, location.pathname + location.search);
+  } catch (e) {}
+  function forceTop(){
+    var html = document.documentElement;
+    var previous = html.style.scrollBehavior;
+    html.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    html.scrollTop = 0;
+    if (document.body) document.body.scrollTop = 0;
+    requestAnimationFrame(function(){
+      window.scrollTo(0, 0);
+      html.scrollTop = 0;
+      html.style.scrollBehavior = previous;
+    });
+  }
+  forceTop();
+  window.addEventListener('pageshow', function(){ forceTop(); });
+})();
+</script>
 <title>Marinemaro beauty bar — студия красоты в Нефтеюганске</title>
 <meta content="Marinemaro beauty bar в Нефтеюганске: ногтевой сервис, ресницы и брови, перманентный макияж, визаж. Южная улица, 18. Ежедневно 10:00–20:00, по записи." name="description"/>
 <meta content="#B99B99" name="theme-color"/>
@@ -626,7 +650,16 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:34px 0 42px;fon
       var active=tab.getAttribute('data-catalog-tab')===id;
       tab.setAttribute('aria-selected',String(active));
       tab.tabIndex=active?0:-1;
-      if(active)tab.scrollIntoView({block:'nearest',inline:'nearest',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+      // Do not scroll the whole document to the catalog during initialisation.
+      // Only bring the active tab into view horizontally after an intentional user action.
+      if(active && opts.scrollTab){
+        var strip=tab.parentElement;
+        if(strip && strip.scrollWidth>strip.clientWidth){
+          var tabRect=tab.getBoundingClientRect(), stripRect=strip.getBoundingClientRect();
+          if(tabRect.left<stripRect.left) strip.scrollBy({left:tabRect.left-stripRect.left,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+          else if(tabRect.right>stripRect.right) strip.scrollBy({left:tabRect.right-stripRect.right,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+        }
+      }
     });
     panels.forEach(function(p){p.hidden=p!==panel;p.classList.remove('mm-tab-enter')});
     panel.classList.add('visible');
@@ -640,7 +673,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:34px 0 42px;fon
     }
   }
   tabs.forEach(function(tab,index){
-    tab.addEventListener('click',function(){activate(tab.getAttribute('data-catalog-tab'))});
+    tab.addEventListener('click',function(){activate(tab.getAttribute('data-catalog-tab'),{scrollTab:true})});
     tab.addEventListener('keydown',function(e){
       var next=index;
       if(e.key==='ArrowRight')next=(index+1)%tabs.length;
@@ -648,7 +681,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:34px 0 42px;fon
       else if(e.key==='Home')next=0;
       else if(e.key==='End')next=tabs.length-1;
       else return;
-      e.preventDefault();tabs[next].focus();activate(tabs[next].getAttribute('data-catalog-tab'));
+      e.preventDefault();tabs[next].focus();activate(tabs[next].getAttribute('data-catalog-tab'),{scrollTab:true});
     });
   });
   // The quick directory cards point to section IDs; reveal the right tab before scrolling to it.
@@ -661,7 +694,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:34px 0 42px;fon
     var panel=target.classList.contains('catalog-cluster')?target:target.closest('.catalog-cluster');
     if(!panel)return;
     e.preventDefault();
-    activate(panel.id,{scroll:false});
+    activate(panel.id,{scroll:false,scrollTab:true});
     history.replaceState(null,'','#'+targetId);
     requestAnimationFrame(function(){target.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})});
   });
@@ -669,7 +702,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:34px 0 42px;fon
   var hash=decodeURIComponent(location.hash.replace(/^#/,''));
   var hashTarget=hash&&document.getElementById(hash);
   var hashPanel=hashTarget&&(hashTarget.classList.contains('catalog-cluster')?hashTarget:hashTarget.closest('.catalog-cluster'));
-  if(hashPanel&&root.contains(hashPanel))activate(hashPanel.id,{scroll:true});
+  if(hashPanel&&root.contains(hashPanel))activate(hashPanel.id,{scroll:true,scrollTab:true});
   else activate(activeId);
 })();
 </script>
