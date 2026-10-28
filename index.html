@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 
 <html lang="ru">
 <head>
@@ -519,7 +518,29 @@ html{scroll-padding-top:86px}
 .hero .hero-visual.hero-logo-stage::after{display:none !important; content:none !important; background:none !important; border:0 !important; box-shadow:none !important;}
 .hero .hero-visual.hero-logo-stage::before{display:none !important; content:none !important;}
 @media(max-width:760px){.hero .hero-visual.hero-logo-stage{width:100% !important; max-width:500px; min-height:0 !important; aspect-ratio:auto !important; padding:8px 0 !important; gap:20px; border:0 !important; border-radius:0 !important; box-shadow:none !important; background:transparent !important;}}
+
+@media(max-width:760px){
+  main>section.section:not(.hero):not(.book-section){background-image:linear-gradient(180deg,rgba(185,155,153,.20) 0,rgba(185,155,153,.09) 42px,transparent 118px),linear-gradient(0deg,rgba(185,155,153,.18) 0,rgba(185,155,153,.07) 42px,transparent 112px)}
+  main>section.hero{background-image:linear-gradient(180deg,transparent 78%,rgba(255,255,255,.22) 100%),linear-gradient(135deg,var(--brand) 0%,#c5aaa8 43%,var(--light) 100%)}
+}
 </style>
+
+<style id="marinemaro-demo-banner-hours-gradients">
+.demo-concept-banner{position:relative;z-index:41;padding:7px 16px;text-align:center;background:linear-gradient(100deg,#f8eeee 0%,#e9d5d5 48%,#f8eeee 100%);color:#60494c;border-bottom:1px solid rgba(58,44,46,.10);font:650 .76rem/1.35 var(--sans);letter-spacing:.025em}
+.opening-status{display:inline-flex;align-items:center;gap:8px;width:fit-content;max-width:100%;padding:8px 13px;border:1px solid rgba(255,255,255,.42);border-radius:999px;background:rgba(255,255,255,.12);font-size:.83rem!important;font-weight:750;letter-spacing:.015em;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.opening-status:before{content:"";width:7px;height:7px;flex:0 0 7px;border-radius:50%;background:#d9f4c1;box-shadow:0 0 0 3px rgba(217,244,193,.16)}
+.opening-status.is-closed:before{background:#ffe2bc;box-shadow:0 0 0 3px rgba(255,226,188,.16)}
+/* More visible, still soft blush transitions at both edges of each section. */
+main>section.section:not(.hero):not(.book-section){background-image:linear-gradient(180deg,rgba(185,155,153,.23) 0,rgba(185,155,153,.13) 42px,rgba(185,155,153,.045) 88px,transparent 150px),linear-gradient(0deg,rgba(185,155,153,.21) 0,rgba(185,155,153,.10) 46px,rgba(185,155,153,.025) 92px,transparent 145px)}
+main>section.hero{background-image:linear-gradient(180deg,transparent 74%,rgba(255,255,255,.26) 100%),linear-gradient(135deg,var(--brand) 0%,#c5aaa8 43%,var(--light) 100%)}
+main>section.book-section{background-image:linear-gradient(180deg,rgba(255,255,255,.20),rgba(255,255,255,.06) 72px,transparent 150px),linear-gradient(0deg,rgba(58,44,46,.12),transparent 132px)}
+@media(max-width:760px){.demo-concept-banner{padding:7px 12px;font-size:.68rem;letter-spacing:0}.site-header{top:0}.opening-status{font-size:.76rem!important;padding:7px 11px;margin-bottom:2px}}
+@media(prefers-reduced-motion:no-preference){.demo-concept-banner{background-size:200% 100%;animation:demoBannerShimmer 12s ease-in-out infinite alternate}.opening-status{animation:openingStatusIn .65s .12s both cubic-bezier(.2,.75,.25,1)}}
+@keyframes demoBannerShimmer{from{background-position:0% 50%}to{background-position:100% 50%}}
+@keyframes openingStatusIn{from{opacity:0;transform:translateY(7px);filter:blur(3px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@media(prefers-reduced-motion:reduce){.demo-concept-banner,.opening-status{animation:none!important}}
+</style>
+
 </head>
 <body>
 <div aria-label="Загрузка сайта Marinemaro" class="site-loader" id="siteLoader" role="status">
@@ -530,6 +551,7 @@ html{scroll-padding-top:86px}
 <span aria-hidden="true" class="site-loader-spinner"></span>
 </div>
 </div>
+<div class="demo-concept-banner" role="note">Демо-концепт для владельца студии Marinemaro · Не официальный сайт</div>
 <header class="site-header">
 <div class="wrap nav">
 <a aria-label="MarineMaro Beauty Bar — в начало" class="logo" href="#top"><img alt="MarineMaro Beauty Bar" decoding="async" fetchpriority="high" height="86" src="data:image/png;base64,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" width="354"/></a>
@@ -544,7 +566,7 @@ html{scroll-padding-top:86px}
 <section class="hero" id="hero">
 <div class="wrap hero-grid">
 <div class="hero-copy reveal">
-<p class="eyebrow">Студия красоты · Нефтеюганск</p>
+<p class="eyebrow opening-status" id="openingStatus" aria-live="polite">Ежедневно 10:00–20:00</p>
 <h1>MarineMaro Beauty Bar</h1>
 <p class="hero-lead">пространство ухода за собой. Маникюр и педикюр, ресницы и брови, перманентный макияж и визаж — в одном месте, в спокойной атмосфере и по предварительной записи.</p>
 <div class="hero-actions"><a class="btn btn-primary hero-book-button" data-yc="" href="https://b749524.yclients.com/company/703835/personal/menu?o=" rel="noopener noreferrer" target="_blank">Записаться </a><a aria-label="Позвонить в Marinemaro" class="btn btn-primary hero-call-button" href="tel:+79825749928"><svg aria-hidden="true" class="hero-call-icon" viewbox="0 0 24 24"><path d="M6.6 3.8 9.1 3.3l1.5 3.8-1.7 1.4a15.2 15.2 0 0 0 6.6 6.6l1.4-1.7 3.8 1.5-.5 2.5c-.2 1.2-1.3 2.1-2.5 2A16.6 16.6 0 0 1 4.6 6.3c-.1-1.2.8-2.3 2-2.5Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"></path></svg><span>Позвонить</span></a></div>
@@ -900,5 +922,62 @@ html{scroll-padding-top:86px}
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hidden){closePanel();toggle.focus();}});
 })();
 </script>
+
+<script id="marinemaro-opening-status-script">
+(function(){
+  var node=document.getElementById('openingStatus');
+  if(!node)return;
+  function update(){
+    try{
+      var parts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Yekaterinburg',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+      var h=Number(parts.find(function(p){return p.type==='hour'}).value);
+      var m=Number(parts.find(function(p){return p.type==='minute'}).value);
+      var minutes=h*60+m, open=10*60, close=20*60;
+      node.classList.toggle('is-closed',minutes<open||minutes>=close);
+      if(minutes<open) node.textContent='Сейчас закрыто · Откроемся в 10:00';
+      else if(minutes>=close) node.textContent='Сейчас закрыто · Откроемся завтра в 10:00';
+      else node.textContent='Сейчас открыто · Закроемся в 20:00';
+    }catch(e){node.textContent='Ежедневно 10:00–20:00';}
+  }
+  update(); window.setInterval(update,60000);
+})();
+</script>
+
+
+<style id="marinemaro-section-transitions-v6">
+/* Stronger but still soft blush fades at the boundaries between blocks. */
+main#top > section.section:not(.hero):not(.book-section) {
+  background-image:
+    linear-gradient(180deg,
+      rgba(185,155,153,.34) 0,
+      rgba(185,155,153,.20) 48px,
+      rgba(185,155,153,.08) 104px,
+      transparent 158px),
+    linear-gradient(0deg,
+      rgba(185,155,153,.30) 0,
+      rgba(185,155,153,.17) 48px,
+      rgba(185,155,153,.05) 104px,
+      transparent 154px);
+  border-top: 1px solid rgba(185,155,153,.10);
+}
+main#top > section#hero.hero {
+  background-image:
+    linear-gradient(180deg, transparent 68%, rgba(251,247,245,.42) 100%),
+    linear-gradient(135deg,var(--brand) 0%,#c5aaa8 43%,var(--light) 100%);
+}
+main#top > section.book-section {
+  background-image:
+    linear-gradient(180deg,rgba(255,255,255,.31) 0,rgba(255,255,255,.11) 76px,transparent 154px),
+    linear-gradient(0deg,rgba(58,44,46,.19) 0,rgba(58,44,46,.07) 70px,transparent 144px);
+}
+@media (max-width:760px) {
+  main#top > section.section:not(.hero):not(.book-section) {
+    background-image:
+      linear-gradient(180deg,rgba(185,155,153,.34) 0,rgba(185,155,153,.18) 40px,rgba(185,155,153,.06) 84px,transparent 126px),
+      linear-gradient(0deg,rgba(185,155,153,.28) 0,rgba(185,155,153,.14) 40px,rgba(185,155,153,.04) 82px,transparent 122px);
+  }
+}
+</style>
+
 </body>
 </html>
